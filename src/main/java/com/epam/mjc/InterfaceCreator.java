@@ -1,8 +1,19 @@
 package com.epam.mjc;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class InterfaceCreator {
 
     public Operation<Integer> divideBy(Integer divider) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        Operation<Integer> oper = list -> {
+            List<Integer> res = new LinkedList<>();
+            for (Integer i : list) {
+                i = i / divider;
+                res.add(i);
+            }
+            return res;
+        };
+        return oper;
     }
 }
